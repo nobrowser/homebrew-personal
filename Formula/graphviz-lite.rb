@@ -1,4 +1,4 @@
-class Graphviz_lite < Formula
+class GraphvizLite < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
   sha256 "18aa54015337a6d16d323fa487ed386a8291adeb4b1378025bb115dfb0e64e93"
@@ -12,7 +12,7 @@ class Graphviz_lite < Formula
   depends_on "fontconfig"
   depends_on "gd"
   conflicts_with "graphviz", because: "graphviz-lite is just a light build of the same package"
-  
+
   def install
     args = %W[
       --disable-debug
