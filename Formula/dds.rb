@@ -30,7 +30,7 @@ class Dds < Formula
     system "make", "-C", "src"
     lib.install "src/libdds.a" => "libdds.a"
     include.install "include/dll.h" => "dds.h"
-    "#{lib}/pkgconfig/dds.pc".write pc_file
+    ("#{lib}/pkgconfig/dds.pc").write pc_file
   end
 
   test do
