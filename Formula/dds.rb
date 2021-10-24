@@ -8,9 +8,9 @@ class Dds < Formula
   def install
     cp "src/Makefiles/Makefile_Mac_clang_static", "src/Makefile"
     inreplace "src/Makefile" do |s|
-      s.gsub!(/^THREADING[[:blank:]]=.*/, "THREADING = -DDDS_THREADS_STL")
-      s.gsub!(/^THREAD_LINK[[:blank:]]=.*/, "THREAD_LINK =")
-      s.gsub!(/^CC[[:blank:]]=.*/, "CC = c++")
+      s.gsub!(/^THREADING[[:blank:]]*=.*/, "THREADING = -DDDS_THREADS_STL")
+      s.gsub!(/^THREAD_LINK[[:blank:]]*=.*/, "THREAD_LINK =")
+      s.gsub!(/^CC[[:blank:]]*=.*/, "CC = c++")
     end
     system "make", "-C", "src"
     lib.install "src/libdds.a" => "libdds.a"
