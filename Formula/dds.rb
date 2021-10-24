@@ -5,6 +5,21 @@ class Dds < Formula
   sha256 "9ef36d8c36bf697ba3b499fcb9dca51a4b423278ac72e947235ac86f0b5fc38a"
   license "Apache-2.0"
 
+  def pc_file
+    <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
+
+      Name: Dds
+      Description: Double dummy bridge hand solving
+      Version: #{version}
+      Libs: -L${libdir} -ldds
+      Cflags: -I${includedir}
+    EOS
+  end
+
   def install
     cp "src/Makefiles/Makefile_Mac_clang_static", "src/Makefile"
     inreplace "src/Makefile" do |s|
@@ -15,6 +30,7 @@ class Dds < Formula
     system "make", "-C", "src"
     lib.install "src/libdds.a" => "libdds.a"
     include.install "include/dll.h" => "dds.h"
+    "#{lib}/pkgconfig/dds.pc".write pc_file
   end
 
   test do
