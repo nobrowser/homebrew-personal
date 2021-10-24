@@ -6,7 +6,7 @@ class Dds < Formula
   license "Apache-2.0"
 
   def install
-    "src/Makefiles/Makefile_Mac_clang_static".cp "src/Makefile"
+    cp "src/Makefiles/Makefile_Mac_clang_static", "src/Makefile"
     inreplace "src/Makefile" do |s|
       s.gsub!(/^THREADING[[:blank:]]=.*/, "THREADING = -DDDS_THREADS_STL")
       s.gsub!(/^THREAD_LINK[[:blank:]]=.*/, "THREAD_LINK =")
