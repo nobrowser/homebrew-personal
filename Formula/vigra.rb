@@ -24,8 +24,7 @@ class Vigra < Formula
 
   test do
     resource("vigra_flip_source").stage do
-      system "c++", "-o", "a.out", "vigra_flip.c++"
-      assert_predicate testpath/"a.out", :exist?
+      assert_equal "", shell_output("c++ -w -o a.out -L #{lib} -l vigraimpex vigra_flip.c++")
     end
   end
 end
