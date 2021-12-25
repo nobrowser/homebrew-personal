@@ -13,7 +13,7 @@ class Vigra < Formula
 
   resource("vigra_flip_source") do
     url "https://raw.githubusercontent.com/nobrowser/homebrew-personal/master/fixtures/vigra_flip.c%2B%2B"
-    sha256 "a0450a867d534cdc05b6133326810625644745bcc4e801a678eeb8527de5ae6f"
+    sha256 "b7ffeae63d9c24233c5b5bf7610639d67ab13b3cdcb646f762bded69eade1551"
   end
 
   def install

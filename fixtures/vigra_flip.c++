@@ -34,7 +34,7 @@ int main(int argc, char ** argv)
             // when transposing about the minor diagonal, we need a new
             // image with reversed shape to hold the transposed data
             MultiArray<2, UInt8> transposed(reverse(imageArray.shape()));
-            transposeImage(imageArray, transposed, minor);
+            transposeImage(imageArray, transposed, vigra::minor);
             exportImage(transposed, argv[2]);
         }
     }
