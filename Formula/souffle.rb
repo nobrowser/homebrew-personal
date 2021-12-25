@@ -5,7 +5,7 @@ class Souffle < Formula
   sha256 "866b5aeaf88c0c5c2c1b6cb2b33faa6a0084154f5396e644f11767d6fe82b1d6"
   license "UPL-1.0"
 
-  depends_on "bison" => [:build, "3.0.4"]
+  depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
