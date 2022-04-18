@@ -7,6 +7,7 @@ class Sfsexp < Formula
   license "LGPL-2.1-or-later"
 
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
     system "autoreconf -i"
