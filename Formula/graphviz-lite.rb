@@ -1,17 +1,14 @@
 class GraphvizLite < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
-  url "https://gitlab.com/graphviz/graphviz.git",
-      tag:      "3.0.0",
-      revision: "24cf7232bb8728823466e0ef536862013893e567"
+  sha256 "e6f0ac0b975bcadc000559d5a767111737d0a03919dfc0e47ce6450c877c7834"
+  url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/3.0.0/graphviz-3.0.0.tar.gz"
+
   license "EPL-1.0"
   version_scheme 1
-  head "https://gitlab.com/graphviz/graphviz.git", branch: "main"
 
   depends_on "pkg-config" => :build
   depends_on "bison" => :build
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
   depends_on "expat"
   depends_on "freetype"
   depends_on "fontconfig"
@@ -43,7 +40,6 @@ class GraphvizLite < Formula
       LDFLAGS=-L/usr/local/opt/bison/lib
     ]
 
-    system "./autogen.sh"
     system "./configure", *args
     system "make"
     system "make", "install"
