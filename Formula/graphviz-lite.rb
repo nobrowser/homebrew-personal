@@ -1,12 +1,14 @@
 class GraphvizLite < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
-  sha256 "18aa54015337a6d16d323fa487ed386a8291adeb4b1378025bb115dfb0e64e93"
-  url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/2.49.1/graphviz-2.49.1.tar.xz"
+  sha256 "59931082a3638139e06c296b96e860a9d338432af06f7f57a6ad8da5cbf465c7"
+  url "https://gitlab.com/graphviz/graphviz/-/archive/3.0.0/graphviz-3.0.0.tar.gz"
+
   license "EPL-1.0"
   version_scheme 1
 
   depends_on "pkg-config" => :build
+  depends_on "bison" => :build
   depends_on "expat"
   depends_on "freetype"
   depends_on "fontconfig"
@@ -32,8 +34,11 @@ class GraphvizLite < Formula
       --with-libgd
       --without-webp
       --with-expat
+      YACC=/usr/local/opt/bison/bin/yacc
+      LDFLAGS=-L/usr/local/opt/bison/lib
     ]
 
+    system "./autogen.sh"
     system "./configure", *args
     system "make"
     system "make", "install"
