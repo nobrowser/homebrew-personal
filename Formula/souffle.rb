@@ -1,8 +1,8 @@
 class Souffle < Formula
   desc "Logic Defined Static Analysis"
   homepage "https://souffle-lang.github.io/"
-  url "https://github.com/souffle-lang/souffle/archive/refs/tags/2.1.tar.gz"
-  sha256 "866b5aeaf88c0c5c2c1b6cb2b33faa6a0084154f5396e644f11767d6fe82b1d6"
+  url "https://github.com/souffle-lang/souffle/archive/refs/tags/2.3.tar.gz"
+  sha256 "db03f2d7a44dffb6ad5bc65637e5ba2b7c8ae6f326d83bcccb17986beadc4a31"
   license "UPL-1.0"
 
   depends_on "bison" => :build
