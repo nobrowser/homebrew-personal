@@ -13,8 +13,6 @@ class Souffle < Formula
   uses_from_macos "libffi"
 
   def install
-    # disable this BROKEN FKING SHITE !!!!
-    system "sed", "-i", ".~bk~", "-e", "/^# Installing bash completion/,/^# [^-]/d", "CMakeLists.txt"
     with_env("CXX" => "/usr/bin/clang++") do
       system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     end
