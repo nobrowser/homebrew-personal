@@ -1,7 +1,7 @@
 class Rc < Formula
   desc "Implementation of the AT&T Plan 9 shell"
   homepage "http://doc.cat-v.org/plan_9/4th_edition/papers/rc"
-  head "https://github.com/rakitzis/rc.git", revision "ceb59bb2a644f4ebc1645fe15f1063029579fa7c"
+  head "https://github.com/rakitzis/rc.git", revision: "ceb59bb2a644f4ebc1645fe15f1063029579fa7c"
   license "Zlib"
 
   depends_on "automake" => :build
