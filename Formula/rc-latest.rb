@@ -1,4 +1,4 @@
-class Rc < Formula
+class RcLatest < Formula
   desc "Implementation of the AT&T Plan 9 shell"
   homepage "http://doc.cat-v.org/plan_9/4th_edition/papers/rc"
   head "https://github.com/rakitzis/rc.git", revision: "ceb59bb2a644f4ebc1645fe15f1063029579fa7c"
@@ -8,6 +8,8 @@ class Rc < Formula
   depends_on "autoconf" => :build
 
   uses_from_macos "libedit"
+
+  conflicts_with "rc", because: "up to date version of the same package"
 
   def install
     system "autoreconf", "-i"
