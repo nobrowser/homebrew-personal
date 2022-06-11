@@ -16,4 +16,9 @@ class Scsh < Formula
     system "make", "-j1", "install"
   end
 
+  test do
+    assert_match "> 2\n",
+      shell_output("{ echo '(+ 1 1)' ; echo ',exit' ; } | #{bin}/scsh | sed -n -e 3p")
+  end
+
 end
