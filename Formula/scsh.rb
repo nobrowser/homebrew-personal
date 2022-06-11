@@ -2,6 +2,7 @@ class Scsh < Formula
   desc "A shell embedded in Scheme"
   homepage "https://scsh.net"
   url "https://github.com/scheme/scsh.git", revision: "4acf6e4ed7b65b46186ef0c9c2a1e10bef8dc052"
+  version "0.7"
   license "BSD-3-Clause"
 
   depends_on "automake" => :build
