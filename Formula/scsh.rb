@@ -12,8 +12,8 @@ class Scsh < Formula
   def install
     system "autoreconf", "-i"
     system "./configure", *std_configure_args
-    system "make"
-    system "make", "install"
+    system "make", "-j1"
+    system "make", "-j1", "install"
   end
 
 end
