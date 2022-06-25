@@ -6,7 +6,7 @@ class SwiPrologFixed < Formula
   url "https://www.swi-prolog.org/download/stable/src/swipl-8.4.3.tar.gz"
   sha256 "946119a0b5f5c8f410ea21fbf6281e917e61ef35ac0aabbdd24e787470d06faa"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
   livecheck do
@@ -35,9 +35,7 @@ class SwiPrologFixed < Formula
 
   def install
     args = ["-DSWIPL_PACKAGES_JAVA=OFF", "-DCMAKE_INSTALL_RPATH=@loader_path"]
-    with_env(CPPFLAGS: "-I/usr/local/opt/libarchive/include", LDFLAGS: "-L/usr/local/opt/libarchive/lib") do
-      system "cmake", "-G", "Ninja", "-S", ".", "-B", "build", *std_cmake_args, *args
-    end
+    system "cmake", "-G", "Ninja", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     cp_r "#{share}/pkgconfig", "#{lib}/pkgconfig"
