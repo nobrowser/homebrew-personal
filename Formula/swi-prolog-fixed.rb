@@ -40,7 +40,7 @@ class SwiPrologFixed < Formula
     end
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    lib.install_symlink "../share/pkgconfig"
+    cp_r "#{share}/pkgconfig", "#{lib}/pkgconfig"
   end
 
   test do
