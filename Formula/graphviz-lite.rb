@@ -7,7 +7,7 @@ class GraphvizLite < Formula
   license "EPL-1.0"
   version_scheme 1
   revision 2
-  
+
   depends_on "pkg-config" => :build
   depends_on "bison" => :build
   depends_on "expat"
