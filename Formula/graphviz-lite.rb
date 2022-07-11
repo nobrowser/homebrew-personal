@@ -6,7 +6,8 @@ class GraphvizLite < Formula
 
   license "EPL-1.0"
   version_scheme 1
-
+  revision 2
+  
   depends_on "pkg-config" => :build
   depends_on "bison" => :build
   depends_on "expat"
@@ -18,6 +19,10 @@ class GraphvizLite < Formula
   uses_from_macos "flex" => :build
 
   def install
+    ENV["YACC"] = "/usr/local/opt/bison/bin/yacc"
+    ENV["PKG_CONFIG_PATH"] = "/usr/local/opt/expat/pkgconfig"
+    ENV["LDFLAGS"] = "-L/usr/local/opt/bison/lib -L/usr/local/opt/expat/lib"
+    ENV["CPPFLAGS"] = "-I/usr/local/opt/expat/include"
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -36,8 +41,6 @@ class GraphvizLite < Formula
       --with-libgd
       --without-webp
       --with-expat
-      YACC=/usr/local/opt/bison/bin/yacc
-      LDFLAGS=-L/usr/local/opt/bison/lib
     ]
 
     system "./configure", *args
