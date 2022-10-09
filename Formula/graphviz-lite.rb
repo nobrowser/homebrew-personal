@@ -6,7 +6,7 @@ class GraphvizLite < Formula
 
   license "EPL-1.0"
   version_scheme 1
-  revision 1
+  revision 2
 
   depends_on "pkg-config" => :build
   depends_on "bison" => :build
@@ -21,9 +21,8 @@ class GraphvizLite < Formula
 
   def install
     ENV["YACC"] = "/usr/local/opt/bison/bin/yacc"
-    ENV["PKG_CONFIG_PATH"] = "/usr/local/opt/expat/lib/pkgconfig"
-    ENV["LDFLAGS"] = "-L/usr/local/opt/bison/lib -L/usr/local/opt/expat/lib -L/usr/local/opt/webp/lib"
-    ENV["CPPFLAGS"] = "-I/usr/local/opt/expat/include -I/usr/local/opt/webp/include"
+    ENV["PKG_CONFIG_PATH"] = "/usr/local/opt/expat/lib/pkgconfig:/usr/local/opt/webp/lib/pkgconfig"
+    ENV["LDFLAGS"] = "-L/usr/local/opt/bison/lib"
     args = %W[
       --disable-swig
       --disable-lefty
