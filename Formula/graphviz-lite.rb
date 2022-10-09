@@ -14,19 +14,17 @@ class GraphvizLite < Formula
   depends_on "freetype"
   depends_on "fontconfig"
   depends_on "gd"
+  depends_on "webp"
   conflicts_with "graphviz", because: "graphviz-lite is just a light build of the same package"
 
   uses_from_macos "flex" => :build
 
   def install
     ENV["YACC"] = "/usr/local/opt/bison/bin/yacc"
-    ENV["PKG_CONFIG_PATH"] = "/usr/local/opt/expat/pkgconfig"
-    ENV["LDFLAGS"] = "-L/usr/local/opt/bison/lib -L/usr/local/opt/expat/lib"
-    ENV["CPPFLAGS"] = "-I/usr/local/opt/expat/include"
+    ENV["PKG_CONFIG_PATH"] = "/usr/local/opt/expat/lib/pkgconfig"
+    ENV["LDFLAGS"] = "-L/usr/local/opt/bison/lib -L/usr/local/opt/expat/lib -L/usr/local/opt/webp/lib"
+    ENV["CPPFLAGS"] = "-I/usr/local/opt/expat/include -I/usr/local/opt/webp/include"
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
       --disable-swig
       --disable-lefty
       --without-x
@@ -39,11 +37,11 @@ class GraphvizLite < Formula
       --with-freetype2
       --with-fontconfig
       --with-libgd
-      --without-webp
+      --with-webp
       --with-expat
     ]
 
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
 
