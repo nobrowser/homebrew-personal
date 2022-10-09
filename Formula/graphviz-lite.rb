@@ -1,12 +1,12 @@
 class GraphvizLite < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
-  sha256 "e6f0ac0b975bcadc000559d5a767111737d0a03919dfc0e47ce6450c877c7834"
-  url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/3.0.0/graphviz-3.0.0.tar.gz"
+  sha256 "8eae137c4a2bdac7aa99bb13b748c55b9da9e9fb59f927fd50b84b56bf07f4cc"
+  url "https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/6.0.1/graphviz-6.0.1.tar.xz"
 
   license "EPL-1.0"
   version_scheme 1
-  revision 2
+  revision 1
 
   depends_on "pkg-config" => :build
   depends_on "bison" => :build
