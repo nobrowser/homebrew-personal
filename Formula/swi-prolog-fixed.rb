@@ -3,10 +3,9 @@
 class SwiPrologFixed < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "https://www.swi-prolog.org/"
-  url "https://www.swi-prolog.org/download/stable/src/swipl-9.0.0.tar.gz"
-  sha256 "d607733a776ca56b3ecb2118119d4ae08a8790ef4aaa08bbe8f2279f34fba4b8"
+  url "https://www.swi-prolog.org/download/stable/src/swipl-9.0.2.tar.gz"
+  sha256 "33b5de34712d58f14c1e019bd1613df9a474f5e5fd024155a0f6e67ebb01c307"
   license "BSD-2-Clause"
-  revision 3
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
   livecheck do
@@ -16,12 +15,12 @@ class SwiPrologFixed < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "berkeley-db"
+  depends_on "pkg-config" => :build
+  depends_on "berkeley-db@5"
   depends_on "gmp"
-  depends_on "jpeg"
   depends_on "libarchive"
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl@3"
   depends_on "ossp-uuid"
   depends_on "pcre"
   depends_on "readline"
@@ -34,10 +33,10 @@ class SwiPrologFixed < Formula
   conflicts_with "swi-prolog", because: "this is just a fixed version of swi-prolog"
 
   def install
-    ENV["PKG_CONFIG_PATH"] = "/usr/local/opt/libarchive/lib/pkgconfig:/usr/local/opt/openssl@1.1/lib/pkgconfig:/usr/local/opt/readline/lib/pkgconfig"
-    ENV["LDFLAGS"] = "-L/usr/local/opt/berkeley-db/lib -L/usr/local/opt/libarchive/lib -L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/readline/lib"
-    ENV["CPPFLAGS"] = "-I/usr/local/opt/berkeley-db/include -I/usr/local/opt/libarchive/include -I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/readline/include"
-    args = ["-DSWIPL_PACKAGES_JAVA=OFF", "-DCMAKE_INSTALL_RPATH=@loader_path"]
+    ENV["PKG_CONFIG_PATH"] = "/usr/local/opt/libarchive/lib/pkgconfig:/usr/local/opt/openssl@3/lib/pkgconfig:/usr/local/opt/readline/lib/pkgconfig"
+    ENV["LDFLAGS"] = "-L/usr/local/opt/berkeley-db@5/lib -L/usr/local/opt/libarchive/lib -L/usr/local/opt/openssl@3/lib -L/usr/local/opt/readline/lib"
+    ENV["CPPFLAGS"] = "-I/usr/local/opt/berkeley-db@5/include -I/usr/local/opt/libarchive/include -I/usr/local/opt/openssl@3/include -I/usr/local/opt/readline/include"
+    args = ["-DSWIPL_PACKAGES_JAVA=OFF", "-DSWIPL_PACKAGES_X=OFF", "-DCMAKE_INSTALL_RPATH=#{loader_path}"]
     system "cmake", "-G", "Ninja", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
