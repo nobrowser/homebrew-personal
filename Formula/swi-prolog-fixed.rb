@@ -3,8 +3,8 @@
 class SwiPrologFixed < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "https://www.swi-prolog.org/"
-  url "https://www.swi-prolog.org/download/stable/src/swipl-9.0.2.tar.gz"
-  sha256 "33b5de34712d58f14c1e019bd1613df9a474f5e5fd024155a0f6e67ebb01c307"
+  url "https://www.swi-prolog.org/download/stable/src/swipl-9.0.3.tar.gz"
+  sha256 "e2919bc58710abd62b9cd40179a724c30bdbe9aa428af49d7fdc6d0158921afb"
   license "BSD-2-Clause"
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
 
