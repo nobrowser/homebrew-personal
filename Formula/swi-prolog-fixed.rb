@@ -7,6 +7,7 @@ class SwiPrologFixed < Formula
   sha256 "e2919bc58710abd62b9cd40179a724c30bdbe9aa428af49d7fdc6d0158921afb"
   license "BSD-2-Clause"
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
+  revision 2
 
   livecheck do
     url "https://www.swi-prolog.org/download/stable/src/"
