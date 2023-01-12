@@ -22,7 +22,7 @@ class SwiPrologFixed < Formula
   depends_on "libyaml"
   depends_on "openssl@3"
   depends_on "ossp-uuid"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "readline"
   depends_on "unixodbc"
 
